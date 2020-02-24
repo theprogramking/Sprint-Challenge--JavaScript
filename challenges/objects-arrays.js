@@ -95,7 +95,9 @@ graduates.forEach((i) => {
 console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
-const unisWithUni = [];
+const unisWithUni = graduates.filter((i) => {
+  if(i.university.includes("Uni")) return 1;
+});
 console.log(unisWithUni);
 
 
@@ -153,8 +155,11 @@ console.log(lowPopulationAnimals);
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = zooAnimals.reduce((a, b) => {
-  return a.population + b.population;
+const zooAnimalsPopulations = zooAnimals.map((i) => {
+  return i.population;
+});
+const populationTotal = zooAnimalsPopulations.reduce((a, b) => {
+  return a + b;
 });
 console.log(populationTotal);
 
